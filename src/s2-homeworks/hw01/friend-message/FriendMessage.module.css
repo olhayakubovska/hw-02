@@ -1,31 +1,148 @@
 .friendMessage {
-
+    margin-top: 40px;
+  /* width: 575px; */
+  /* border: 1px solid black; */
+  padding: 10px;
 }
 
 .friendImageAndText {
-
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  gap: 20px;
 }
 
 .friendImageAndText img {
-
+  width: 48px;
+  height: 48px;
 }
 
 .friendText {
+  /* white-space: pre;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; */
+
+  white-space: pre;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 60px;
+  background-color: #f5f7fb;
+  border-radius: 15px;
+  padding: 15px;
+  gap: 5px;
 }
 
-.friendText:after {
+.friendText::after {
+  content: "";
 
+  position: absolute;
+  transform: translate(-40px, 0px);
+
+  width: 0;
+  height: 0;
+
+  /* border-right: 20px solid transparent; */
+  border-left: 35px solid transparent;
+  border-top: 40px solid transparent;
+  /* border-bottom: 13px solid #f5f7fb; */
+  border-bottom: 20px solid #f5f7fb;
+
+  /* border-right: 35px solid transparent;
+  border-top: 40px solid transparent;
+  border-bottom: 20px solid #0066cc; */
 }
 
 .friendName {
-
+    display: flex;
+    /* justify-content: flex-end; */
+    font-size: 18px;
+    font-weight: 600;
+    color: black;
+  
 }
 
 .friendMessageText {
-
+  /* width: 100%;
+  height: 50px; */
+  /* background-color: #f5f7fb; */
+  /* padding: 10px;
+  border-radius: 5px; */
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  /* justify-content: flex-start; */
 }
 
 .friendTime {
-
+  font-size: 10px;
+  display: flex;
+  margin-left: 8px;
+  margin-top: 2px;
+  /* align-items: center; */
+  /* justify-content: center; */
 }
+
+/* 
+
+.message {
+    width: 575px;
+    border: 1px solid black;
+  }
+  
+  .imageAndText {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .imageAndText img {
+    width: 48px;
+    height: 48px;
+    margin-top: 20px;
+  }
+  
+  .text {
+    width: 510px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  
+  .text:after {
+    content: "";
+  
+    position: absolute;
+    transform: translate(507px, 0px);
+  
+    width: 0;
+    height: 0;
+  
+    border-right: 20px solid transparent;
+    border-top: 10px solid transparent;
+    border-bottom: 13px solid aqua;
+  }
+  
+  .name {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .messageText {
+    width: 100%;
+    height: 50px;
+    background-color: aqua;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .time {
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+  }
+   */
