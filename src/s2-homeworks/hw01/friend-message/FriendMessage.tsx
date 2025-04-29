@@ -6,7 +6,7 @@ import { MessageType } from "../HW1";
 
 // MessageType
 
-type FriendMessageType = {
+export type FriendMessageType = {
   message: MessageType;
 };
 const FriendMessage = (props: FriendMessageType) => {
