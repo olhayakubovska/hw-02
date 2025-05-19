@@ -10,12 +10,13 @@ type PropsType = {
 }
 
 export const Sidebar: FC<PropsType> = ({open, handleClose}) => {
+    console.log(open)
     const sidebarClass = s.sidebar
-        + (open ? ' ' + s.open : '')
+        + (open ? ' ' + s.open :  s.nav + ' ' + s.close)
     return (
-        <>
+        <div >
             {/*затемнение справа от открытого меню*/}
-            {open && <div className={s.background} onClick={handleClose}/>}
+            {/* {open && <div className={s.background} onClick={handleClose}/>} */}
 
             <aside className={sidebarClass}>
                 <button className={s.close} onClick={handleClose}>
@@ -32,6 +33,7 @@ export const Sidebar: FC<PropsType> = ({open, handleClose}) => {
                         to={PATH.PRE_JUNIOR}
                         onClick={handleClose}
                         // className={...} // делает студент
+                        className={({isActive})=> isActive ? s.active : ""}
                     >
                         Pre-junior
                     </NavLink>
@@ -40,6 +42,8 @@ export const Sidebar: FC<PropsType> = ({open, handleClose}) => {
                         to={PATH.JUNIOR}
                         onClick={handleClose}
                         // className={...} // делает студент
+                        className={({isActive})=> isActive ? s.active : ""}
+
                     >
                         Junior
                     </NavLink>
@@ -48,11 +52,26 @@ export const Sidebar: FC<PropsType> = ({open, handleClose}) => {
                         to={PATH.JUNIOR_PLUS}
                         onClick={handleClose}
                         // className={...} // делает студент
+                        className={({isActive})=> isActive ? s.active : ""}
+
                     >
                         Junior Plus
                     </NavLink>
                 </nav>
             </aside>
-        </>
+            {open && <div className={s.background} onClick={handleClose}>lalal</div>}
+
+        </div>
     )
 }
+
+// function NavLink({ to, className }) {
+//     const isActive = window.location.pathname === to;
+  
+//     const finalClassName = typeof className === 'function'
+//       ? className({ isActive })
+//       : className;
+  
+//     return <a href={to} className={finalClassName}>...</a>;
+//   }
+  
