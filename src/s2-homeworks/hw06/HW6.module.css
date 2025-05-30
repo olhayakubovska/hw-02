@@ -1,5 +1,17 @@
+.container{
+    margin-top: 131px;
+    /* display: flex;
+    flex-direction: column;
+    gap: 20px; */
+}
+
 .buttonsContainer {
+    display: flex;
+    gap: 20px;
 }
 
 .editableSpanContainer {
+    padding: 20px 0;
 }
+
+

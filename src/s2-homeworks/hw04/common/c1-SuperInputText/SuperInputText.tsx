@@ -18,7 +18,8 @@ type DefaultInputPropsType = DetailedHTMLProps<
 type SuperInputTextPropsType = Omit<DefaultInputPropsType, "type"> & {
   // и + ещё пропсы которых нет в стандартном инпуте
   onChangeText?: (value: string) => void;
-  onEnter?: () => void;
+  // onEnter?: () => void;
+  onEnter?: () => void; 
   error?: ReactNode;
   spanClassName?: string;
 };
@@ -32,10 +33,12 @@ const SuperInputText: React.FC<SuperInputTextPropsType> = ({
   className,
   spanClassName,
   id,
-
+value,
   ...restProps // все остальные пропсы попадут в объект restProps
 }) => {
   // console.log(error,"error!!!!!!")
+
+// console.log(value,"defaultText value")
 
   const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
     onChange?.(e); // если есть пропс onChange, то передать ему е (поскольку onChange не обязателен)
@@ -67,6 +70,7 @@ const SuperInputText: React.FC<SuperInputTextPropsType> = ({
       <input
         id={id}
         type={"text"}
+
         onChange={onChangeCallback}
         onKeyPress={onKeyPressCallback}
         className={finalInputClassName}
