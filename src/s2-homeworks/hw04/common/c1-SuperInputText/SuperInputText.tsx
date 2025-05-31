@@ -4,8 +4,10 @@ import React, {
   InputHTMLAttributes,
   KeyboardEvent,
   ReactNode,
+  useEffect,
 } from "react";
 import s from "./SuperInputText.module.css";
+import { restoreState } from "../../../hw06/localStorage/localStorage";
 
 // тип пропсов обычного инпута
 type DefaultInputPropsType = DetailedHTMLProps<
@@ -19,7 +21,7 @@ type SuperInputTextPropsType = Omit<DefaultInputPropsType, "type"> & {
   // и + ещё пропсы которых нет в стандартном инпуте
   onChangeText?: (value: string) => void;
   // onEnter?: () => void;
-  onEnter?: () => void; 
+  onEnter?: () => void;
   error?: ReactNode;
   spanClassName?: string;
 };
@@ -33,17 +35,23 @@ const SuperInputText: React.FC<SuperInputTextPropsType> = ({
   className,
   spanClassName,
   id,
-value,
   ...restProps // все остальные пропсы попадут в объект restProps
 }) => {
   // console.log(error,"error!!!!!!")
 
-// console.log(value,"defaultText value")
+  // console.log(value,"defaultText value")
+
+//   useEffect(()=>{
+//     // const res = restoreState<string>("hw6-editable-span-value", "hello");
+//     onChangeText?.("hello");
+
+// },[ ])
 
   const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
     onChange?.(e); // если есть пропс onChange, то передать ему е (поскольку onChange не обязателен)
 
     onChangeText?.(e.currentTarget.value);
+    // onChangeText?.("hello");
   };
   const onKeyPressCallback = (e: KeyboardEvent<HTMLInputElement>) => {
     onKeyPress?.(e);
@@ -70,10 +78,10 @@ value,
       <input
         id={id}
         type={"text"}
-
         onChange={onChangeCallback}
         onKeyPress={onKeyPressCallback}
         className={finalInputClassName}
+        value={restProps.value}
         {...restProps} // отдаём инпуту остальные пропсы если они есть (value например там внутри)
       />
     </div>
