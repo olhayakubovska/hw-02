@@ -12,13 +12,9 @@ import s from "./HW6.module.css";
  */
 
 const HW6 = () => {
-  const [value, setValue] = useState<string>("hello");
+  const [value, setValue] = useState<string>("");
 
-// useEffect(()=>{
-//     const res = restoreState<string>("hw6-editable-span-value", "hello");
-//     setValue(res);
 
-// },[])
 
   const save = () => {
     saveState<string>("hw6-editable-span-value", value);

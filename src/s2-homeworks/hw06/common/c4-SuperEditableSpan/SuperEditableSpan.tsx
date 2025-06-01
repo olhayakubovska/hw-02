@@ -9,6 +9,7 @@ import React, {
 import s from "./SuperEditableSpan.module.css";
 import SuperInputText from "../../../hw04/common/c1-SuperInputText/SuperInputText";
 import editIcon from "./editIcon.svg";
+import { restoreState, saveState } from "../../localStorage/localStorage";
 
 // тип пропсов обычного инпута
 type DefaultInputPropsType = DetailedHTMLProps<
@@ -36,23 +37,38 @@ const SuperEditableSpan: React.FC<SuperEditableSpanType> = ({
   onBlur,
   onEnter,
   spanProps,
+  
   ...restProps // все остальные пропсы попадут в объект restProps
 }) => {
   const [editMode, setEditMode] = useState<boolean>(false);
   const { children, onDoubleClick, className, defaultText, ...restSpanProps } =
     spanProps || {};
 
+
+
+    // useEffect(() => {
+    //     setLocalValue(restProps.value || "");
+    //   }, [restProps.value]);
+
+
+    // const [localValue, setLocalValue] = useState(restProps.value || "");
+
+
   const onEnterCallback = () => {
     // выключить editMode при нажатии Enter // делают студенты
 
     onEnter?.();
     setEditMode(false);
+
+
   };
   const onBlurCallback = (e: React.FocusEvent<HTMLInputElement>) => {
     // выключить editMode при нажатии за пределами инпута // делают студенты
 
     onBlur?.(e);
     setEditMode(false);
+    // restProps.onChangeText?.(restProps.value as string || "hello") ;
+
   };
   const onDoubleClickCallBack = (
     e: React.MouseEvent<HTMLSpanElement, MouseEvent>
@@ -61,6 +77,7 @@ const SuperEditableSpan: React.FC<SuperEditableSpanType> = ({
 
     onDoubleClick?.(e);
     setEditMode(true);
+    restProps.onChangeText?.("hello")
   };
 
   const spanClassName = s.span + (className ? " " + className : "");
@@ -86,8 +103,9 @@ const SuperEditableSpan: React.FC<SuperEditableSpanType> = ({
           >
             {/*если нет захардкодженного текста для спана, то значение инпута*/}
 
-            {/* {children || restProps.value || defaultText} */}
-            { defaultText ? defaultText :restProps.value }
+            {children || restProps.value || defaultText}
+            {/* { restProps.value  ? restProps.value  : defaultText} */}
+            {/* { defaultText  ? defaultText : restProps.value } */}
           </span>
         </div>
       )}
