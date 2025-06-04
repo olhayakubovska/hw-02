@@ -77,7 +77,7 @@ const SuperEditableSpan: React.FC<SuperEditableSpanType> = ({
 
     onDoubleClick?.(e);
     setEditMode(true);
-    restProps.onChangeText?.("hello")
+    restProps.onChangeText?.("hello")  /// это setValue
   };
 
   const spanClassName = s.span + (className ? " " + className : "");
@@ -90,7 +90,7 @@ const SuperEditableSpan: React.FC<SuperEditableSpanType> = ({
           onBlur={onBlurCallback}
           onEnter={onEnterCallback}
           className={s.input}
-          value={restProps.value}
+        //   value={restProps.value}
           {...restProps} // отдаём инпуту остальные пропсы если они есть (value например там внутри)
         />
       ) : (
