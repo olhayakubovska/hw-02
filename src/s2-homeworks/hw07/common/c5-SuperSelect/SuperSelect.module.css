@@ -1,9 +1,16 @@
 .select {
+  display: inline-block;
+  width: 165px;
+  height: 24px;
+  /* height: 7000px; */
 }
 
 .select:focus {
+    box-shadow: 0 0 3px #2684FF;
+    /* outline: none; */ 
 }
 
-
 .option:hover {
+    font-size: 14px;
+    padding: 4px;
 }
