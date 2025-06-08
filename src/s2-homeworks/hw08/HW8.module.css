@@ -1,23 +1,60 @@
 .item {
+  height: 30px;
+  width: 600px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  /* border-bottom: 1px solid rgb(67, 67, 67); */
+}
+.users th, .users td {
+  padding: 10px;
+  border-bottom: 1px solid rgb(67, 67, 67);
+  font-size: 14px;
 }
 
+
 .item:last-of-type {
+  border: none;
 }
 
 .users {
+  width: 600px;
+  border-collapse: collapse; /* убирает двойные линии */
+
+  /* margin: 10px; */
 }
 
 .buttonsContainer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin: 18px 0;
 }
 
 .container {
+  width: 600px;
 }
 
-.thead {
+.thead tr {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* padding: 10px; */
+
+  background-color: rgb(146, 157, 168);
 }
+
+.thead tr {
+  font-size: 14px;
+  font-weight: 600;
+  /* margin: 10px; */
+}
+
 
 .nameCol {
+  /* margin: 10px; */
 }
 
 .ageCol {
+  /* margin: 10px; */
 }
