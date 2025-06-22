@@ -28,10 +28,10 @@ function Clock() {
   };
 
   const onMouseEnter = () => {
-    setShow(false);
+    setShow(true);
   };
   const onMouseLeave = () => {
-    setShow(true);
+    setShow(false);
   };
 
   //   const stringTime = "date->time" || <br />; // часы24:минуты:секунды (01:02:03)/(23:02:03)/(24:00:00)/(00:00:01) // пишут студенты
