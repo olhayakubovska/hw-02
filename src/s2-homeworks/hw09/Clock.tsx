@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { MouseEvent, useEffect, useRef, useState } from "react";
 import SuperButton from "../hw04/common/c2-SuperButton/SuperButton";
 import { restoreState } from "../hw06/localStorage/localStorage";
 import s from "./Clock.module.css";
@@ -10,7 +10,7 @@ function Clock() {
     new Date(restoreState("hw9-date", Date.now()))
   );
   const [show, setShow] = useState<boolean>(false);
-
+  console.log(timerId);
   const start = () => {
     // пишут студенты // запустить часы (должно отображаться реальное время, а не +1)
     // сохранить ид таймера (https://learn.javascript.ru/settimeout-setinterval#setinterval)
@@ -18,9 +18,7 @@ function Clock() {
     const timerID = window.setInterval(() => {
       setDate(new Date());
     }, 1000);
-    // console.log(typeof timerID,"timerID")
     setTimerId(timerID);
-    // setShow(true);
   };
 
   const stop = () => {
@@ -30,7 +28,7 @@ function Clock() {
   };
 
   const onMouseEnter = () => {
-    // пишут студенты // показать дату если наведена мышка
+    setShow(false);
   };
   const onMouseLeave = () => {
     setShow(true);
@@ -47,9 +45,17 @@ function Clock() {
   ).padStart(2, "0")}.${date.getFullYear()}` || <br />; // день.месяц.год (01.02.2022) // пишут студенты, варианты 01.02.0123/01.02.-123/01.02.12345 не рассматриваем
 
   // день недели на английском, месяц на английском (https://learn.javascript.ru/intl#intl-datetimeformat)
-  const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const daysOfWeek = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
   const stringDay = daysOfWeek[date.getDay()];
-    //   const stringMonth = date.getMonth() || <br />; // пишут студенты
+  //   const stringMonth = date.getMonth() || <br />; // пишут студенты
 
   const months = [
     "January",
