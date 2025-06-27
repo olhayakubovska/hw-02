@@ -1,3 +1,23 @@
 .loader {
-    /*свг и/или анимация*/
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+
+  /* Слой фона: плавный переход от яркого к прозрачному */
+  background: conic-gradient(
+    rgba(0, 0, 255, 1) 0deg,
+    rgba(0, 0, 255, 0) 270deg
+  );
+
+  /* Маска: делает серединку круга прозрачной, оставляя только кольцо */
+  -webkit-mask-image: radial-gradient(circle, transparent 50%, black 51%);
+  mask-image: radial-gradient(circle, transparent 50%, black 51%);
+
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
