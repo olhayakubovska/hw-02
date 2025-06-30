@@ -41,6 +41,7 @@ function HW11() {
             <SuperRange
               id={"hw11-single-slider"}
               onChange={change}
+              value={value1}
               // сделать так чтоб value1 изменялось // пишет студент
             />
           </div>
