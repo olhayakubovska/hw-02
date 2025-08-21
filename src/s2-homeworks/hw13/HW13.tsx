@@ -31,7 +31,7 @@ const HW13 = () => {
 
     setCode("");
     setImage("");
-    setText("");
+    // setText("");
     setInfo("...loading");
     setLoading(true);
 
@@ -40,6 +40,7 @@ const HW13 = () => {
       .then((res) => {
         setCode("Код 200!");
         setImage(success200);
+        console.log(res)
         setText(res.data.errorText);
 
         // дописать
